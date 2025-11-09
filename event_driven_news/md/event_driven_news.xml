@@ -26,7 +26,7 @@
 					</actions>
 				</cue>
 				<!-- Report on five types of sector ownership changes (includes player faction).  
-				1. Faction has lot control of a sector, sector now ownerless
+				1. Faction has lost control of a sector, sector now ownerless
 				2. Faction has annexed an ownerless sector
 				3. Xenon seize ownerless sector
 				4. Xenon seize a sector from another faction
@@ -212,7 +212,7 @@
 				<set_value name="$Ware" exact="event.param.{1}"/>
 				<set_value name="$Requester" exact="event.param.{2}"/>
 				<set_value name="$Faction" exact="event.param.{3}"/>
-				<do_if value="$Ware.tags.indexof.{tag.minable}">
+				<do_if value="$Ware.hastag.minable">
 					<do_any>
 						<set_value name="$Body" exact="'Market analysts are saying that %1 has been experiencing a crippling shortage of %2.  Officials say that miners are being paid additional for loads in an attempt to resolve the issue.  The shortage is likely to ripple throughout the market'.[$Requester.knownname, $Ware]"/>
 						<set_value name="$Body" exact="'According to economic reports, %1 is currently in need of stations to process %2.  Please speak with your nearest %3 licensing office to inquire about purchasing a plot to take part in this investment opportunity'.[$Requester.knownname, $Ware, $Faction.knownname]"/>
@@ -258,7 +258,7 @@
 				<set_value name="$Ware" exact="event.param.{1}"/>
 				<set_value name="$Requester" exact="event.param.{2}"/>
 				<set_value name="$Faction" exact="event.param.{3}"/>
-				<do_if value="$Ware.tags.indexof.{tag.minable}">
+				<do_if value="$Ware.hastag.minable">
 					<do_any>
 						<set_value name="$Body" exact="'Local mining companies are in disarray after some sectors in %2 space experiences a bust in %1 buying prices. %2 officials say it could take weeks for mining to become a profitable activity again in this region.  For more detailed information about this event, consider purchasing a subscription to a Teladi Trading Terminal.'.[$Ware, $Faction.knownname]"/>
 						<set_value name="$Body" exact="'According to economic reports, %1 is currently in need of refineries to process %2.  Please speak with your nearest %3 licensing office to inquire about purchasing a plot to take part in this exciting investment opportunity'.[$Requester.knownname, $Ware, $Faction.knownname]"/>
